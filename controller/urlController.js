@@ -33,7 +33,7 @@ const result=await url.findOne({shortId});
   }
    return res.json({
       totalClicks: result.visitHistory.length,
-      analytics: result.visitHistory, // ✅ optional: click details bhi bhej do
+      analytics: result.visitHistory, 
     });
 }
 
