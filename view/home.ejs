@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+     
+    <h1> Home page </h1>
+    <center> <h1> Url shorterner </h1> </center>
+     <center>
+ <form method="post" action="/url">
+
+ <input type="text" name="url" placeholder="https://Example.com" size="30px"/> <br/>
+<button type="submit"> Generate</button>
+
+ </form>
+
+   <% if (locals.id) { %>
+  <p> Url Generated: http://localhost:8001/<%= id %></p>
+
+    <%} %>
+
+
+     </center>
+
+    
+</body>
+</html>
