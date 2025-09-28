@@ -24,7 +24,47 @@
     <%} %>
 
 
+
      </center>
+    <center> Show Table </h1> </center><h1> 
+<table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 80%; margin: auto;">
+    <tr>
+        <th>User Name</th>
+        <th>Short ID</th>
+        <th>Original URL</th>
+        <th>Created At</th>
+        <th>Visit History</th>
+    </tr>
+
+    <% if (url.length > 0) { %>
+        <% url.forEach(u => { %>
+            <tr>
+          
+                <td><a href="http://localhost:8001/<%= u.shortId %>" target="_blank"><%= u.shortId %></a></td>
+                <td><a href="<%= u.redirecturl %>" target="_blank"><%= u.redirecturl %></a></td>
+                <td><%= new Date(u.createdAt).toLocaleString() %></td>
+                <td>
+                    <% if(u.visitHistory && u.visitHistory.length > 0) { %>
+                        <ul>
+                            <% u.visitHistory.forEach(v => { %>
+                                <li><%= new Date(v.timestamp).toLocaleString() %></li>
+                            <% }) %>
+                        </ul>
+                    <% } else { %>
+                        No visits
+                    <% } %>
+                </td>
+            </tr>
+        <% }) %>
+    <% } else { %>
+        <tr>
+            <td colspan="5" style="text-align:center;">No URLs created yet.</td>
+        </tr>
+    <% } %>
+</table>
+
+
+
 
     
 </body>

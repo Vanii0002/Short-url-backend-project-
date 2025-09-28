@@ -12,7 +12,8 @@ if(!body.url)
 await url.create({
 shortId,
 redirecturl:body.url,
-visitHistory:[]
+visitHistory:[],
+createBy:req.user._id,
 
 });
 return res.render("home",{
